@@ -22,7 +22,7 @@ public class Inversions {
         }
         return res;
     }
-
+    // efficeint approach
     public static int countInv(int arr[], int l, int h) {
         int res = 0;
         if (l < h) {
@@ -34,7 +34,6 @@ public class Inversions {
         return res;
     }
 
-    // efficeint approach
     public static int merge(int a[], int low, int high, int mid) {
         int n1 = low - mid + 1;
         int n2 = high - mid;
