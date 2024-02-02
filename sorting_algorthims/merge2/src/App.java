@@ -14,7 +14,7 @@ public class App {
             left[i] = a[low + i];
         }
         for (int j = 0; j < n2; j++) {
-            merge[j + 1 + mid] = a[j];
+            a[j + 1 + mid] = a[j];
         }
         int i = 0, j = 0, k = low;
         while (i < n1 && i < n2) {
