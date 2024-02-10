@@ -42,6 +42,7 @@ public class MettingMaximumGuests {
 
     // }
     // return res;
+    // second apraoce for the railiway station problem
     // int i = 1, j = 0, cur = 1, res = 1;
     // while (i < arr.length && j < arr.length) {
     // if (arr[i] <= dep[j]) {

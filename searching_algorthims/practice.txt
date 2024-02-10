@@ -1,0 +1,74 @@
+//majority element code
+HashMap<Integer,Integer> map=new HashMap<Integer,Integer>();
+        for(int i=0;i<size;i++){
+            map.put(a[i],map.getOrDefault(a[i],0)+1);
+        }
+        for(int ele:map.keySet()){
+            if(map.get(ele)>size/2){
+                return ele;
+            }
+        }
+        return -1;
+
+        //median of two sorted arrays
+     int newarr[]=new int[n+m];
+        for(int i=0;i<n;i++){
+            newarr[i]=arr[i];
+        }
+        for(int i=0;i<m;i++){
+            newarr[n+i]=brr[i];
+        }
+        
+        Arrays.sort(newarr);
+        
+        if(newarr.length%2==0){
+            return (newarr[newarr.length/2]+newarr[(newarr.length/2)-1])/2;
+        }
+        return newarr[newarr.length/2];    
+
+        //leftindex
+        //part 1
+        while (l <= high) {
+            int mid = (l + high) / 2;
+            if(arr[mid]==X) return mid;
+            if (arr[mid] >= X) {
+                ans = mid;
+                high = mid - 1;
+            } else {
+                l = mid + 1;
+            }
+        }
+        if(arr[ans]!=X) return -1;
+        return ans;
+        //part 2 left index
+        int l = 0, high = arr.length - 1, ans = -1;
+        while (l <= high) {
+            int mid = (l + high) / 2;
+            if(arr[mid]>X){
+                high=mid-1;
+            }else if(arr[mid]<X){
+                l=mid+1;
+            }
+          else  if(arr[mid]==X){
+              if(mid==0 || arr[mid]!=arr[mid-1]){
+                  return mid;
+              }else{
+                  high=mid-1;
+              }
+          } 
+        }
+    return -1;
+
+        //floor of array using bs
+        int l=0,high=arr.length-1;
+        int ans=-1;
+        while(l<=high){
+            int mid=l+(high-l)/2;
+            if(arr[mid]<=x){
+                ans=mid;//instead of arr[mid] we should give mid
+                l=mid+1;
+            }else{
+                high=mid-1;
+            }
+        }
+        return ans;
