@@ -1,5 +1,6 @@
-import java.util.HashSet;
 import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.Stack;
 import java.util.TreeMap;
 
 public class App {
@@ -11,6 +12,36 @@ public class App {
         // System.out.println(b[i]);
         // }
 
+        Stack<Integer> st = new Stack<>();
+        st.push(1);
+        st.push(2);
+        st.push(3);
+        st.push(4);
+        System.out.println(st.peek() + " the element ");
+        System.out.println("delete the element of stack " + st.pop());
+        System.out.println("after deleting the elements the stack are");
+        st.stream().forEach(e -> System.out.println(e));
+        System.out.println("search element is" + st.search(st.get(2)));
+        PriorityQueue<Integer> pq = new PriorityQueue();
+        pq.add(1);
+        pq.add(2);
+        pq.add(3);
+        pq.add(4);
+        System.out.println("pq is " + pq.peek());
+        System.out.println("pq is " + pq.poll());
+
+        // class Node {
+        // int d;
+        // App next;
+        // App random;
+
+        // public Node(int d, App next, App random) {
+        // this.d = d;
+        // this.next = null;
+        // this.random = null;
+        // }
+
+        // }
         String s = "gaurav";
         Map<Character, Integer> hmap = new TreeMap<>();
         for (int i = 0; i < s.length(); i++) {
@@ -21,26 +52,6 @@ public class App {
 
         }
 
-        String s1 = "geeksforgeeks";
-        HashSet<Character> set = new HashSet<>();
-        int min_idx = Integer.MAX_VALUE;
-        int n = s1.length();
-        for (int i = n - 1; i >= 0; i--) {
-            if (set.contains(s.charAt(i))) {
-                min_idx = i;
-            } else {
-                set.add(s.charAt(i));
-            }
-        }
-        System.out.println(set);
-
     }
 
-    // public static int max(int a[]) {
-    // int lag = a[0];
-    // if (lag > 0) {
-    // lag = max(a);
-    // }
-    // return lag;
-    // }
 }

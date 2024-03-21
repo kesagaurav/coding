@@ -72,3 +72,96 @@ HashMap<Integer,Integer> map=new HashMap<Integer,Integer>();
             }
         }
         return ans;
+
+        //sq root of a number
+        long low=0,high=x,ans=-1;
+		while(low<=high){
+		    long mid=(low+high)/2;
+		    long msq=mid*mid;
+		    if(msq==x){
+		        return mid;
+		    }else if(msq>x){
+		        high=mid-1;
+		    }else{
+		        low=mid+1;
+		        ans=mid;
+		    }
+		}
+
+        //peak elemnt code
+        int low = 0, high = a.length - 1;
+        while (low <= high) {
+            int mid = low + high / 2;
+            if ((mid == 0 || a[mid] <= a[mid - 1]) && (mid == a.length - 1 || a[mid + 1] <= a[mid])) {
+                return mid;
+            } else if (mid > 0 && a[mid - 1] >= a[mid]) {
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return -1;
+
+
+        //smallest positive missing number
+        int sum = 0;
+        for(int i=0;i<n;i++){
+            sum = sum + nums[i];
+        }
+        return ((n * (n+1))/2 - sum);
+
+        //repating element 2
+        //{ Driver Code Starts
+//Initial template for JAVA
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG
+ {
+	public static void main (String[] args) throws IOException
+	 {
+	    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	    int t = Integer.parseInt(br.readLine());
+	    for(int i=0;i<t;i++){
+	        int n = Integer.parseInt(br.readLine());
+	        String l = br.readLine();
+    		String[] sarr = l.split(" ");
+    		int[] arr = new int[sarr.length];
+    		for(int i1=0;i1<arr.length;i1++){
+    			arr[i1] = Integer.parseInt(sarr[i1]);
+    		}
+    		
+            Solution obj = new Solution();
+            
+            int[] res = obj.twoRepeated(arr, n);
+            System.out.println(res[0] + " " + res[1]);
+	    }
+	}
+}
+// } Driver Code Ends
+
+
+//User function template for JAVA
+
+class Solution
+{
+    //Function to find two repeated elements.
+    public int[] twoRepeated(int arr[], int n)
+    {
+        // Your code here
+        int ans[]=new int[2];
+        int digitCount[]=new int[n+1];
+        int j=0;
+        for(int i=0;i<n+2;i++){
+            digitCount[arr[i]]++;
+            if(digitCount[arr[i]]==2){
+                ans[j]=arr[i];
+                j++;
+            }
+        }
+        return ans;
+    }
+    
+}
