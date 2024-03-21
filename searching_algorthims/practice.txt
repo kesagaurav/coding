@@ -165,3 +165,24 @@ class Solution
     }
     
 }
+//allocate min pages
+ static boolean isPossible(int arr[], int n, int m,
+                              int curr_min)
+    {
+        int studentsRequired = 1;
+        int curr_sum = 0;
+ 
+        // iterate over all books
+        for (int i = 0; i < n; i++) {
+            curr_sum += arr[i];
+            if (curr_sum > curr_min) {
+                studentsRequired++; // increment student
+                                    // count
+ 
+                curr_sum = arr[i]; // update curr_sum
+            }
+        }
+ 
+        return studentsRequired <= m;
+    }
+ 
