@@ -264,3 +264,4 @@ class Solution
         long freq=n-arr[n-1]+1;
         return new Pair(arr[l],freq);
     }  
+}
