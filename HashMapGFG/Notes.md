@@ -69,3 +69,146 @@ h(key,i)=(h(key)+i*h2(key))%m;
 1.if u have only keys then u can use hashset
 2.key,value pairs hashmap
 3.And in hashmap if u want order u can use LinkedHashMap
+
+# problem for the intersection of two unsorted arrays.
+public static int NumberofElementsInIntersection(int a[], int b[], int n, int m) {
+        // Your code here
+        Set<Integer> set = new HashSet<>();
+        int c=0;
+        for (int i = 0; i < a.length; i++) {
+            set.add(a[i]);
+
+        }
+        for (int j = 0; j < b.length; j++) {
+            int key=b[j];
+            if (set.contains(b[j]))
+                c++;
+                set.remove(key);
+
+        }
+        return c;
+    }
+
+# notes regarding hashset.
+1.Implements Set Interface.
+
+2.The underlying data structure for HashSet is Hashtable.
+
+3.As it implements the Set Interface, duplicate values are not allowed.
+
+4.Objects that you insert in HashSet are not guaranteed to be inserted in the same order. 
+Objects are inserted based on their hash code.
+
+5.NULL elements are allowed in HashSet.
+
+6.HashSet also implements Serializable and Cloneable interfaces.
+
+public class HashSet<E> extends AbstractSet<E> implements Set<E>, Cloneable, Serializable
+
+
+# notes regarding about hashmap.
+Method	Description	Time Complexity
+put(Object key, Object value)	It is used to insert a particular mapping of key-value pair into a map.	O(1) on average
+
+size()	It is used to return the size of a map.	O(1) on worst case
+
+isEmpty()	Used to check whether the map is empty or not. Returns true if the map is empty.	O(1) on worst case
+
+
+
+Method		
+containsKey(Object key):Description:	Used to return True if for a specified key, mapping is present in the map.Time Complexity	O(1) on average
+remove(Object key):Description:	It is used to remove the a particular key in the Map and returns the corresponding value. If the key is not present then the function returns Null.	
+Time Complexity O(1) on average
+
+# code for subarraywithgivensum.
+static int subArraySum(int arr[], int n, int sum)
+    {
+        // add your code here
+        HashMap<Integer,Integer> map=new HashMap<>();
+        int presum=0;int res=0;
+        for(int i=0;i<n;i++)
+        {
+            presum+=arr[i];
+            if(presum==sum)
+            res++;
+            if(map.containsKey(presum-sum))
+            res+=map.get(presum-sum);
+            
+            if(map.containsKey(presum))
+            map.put(presum,map.get(presum)+1);
+            else
+            map.put(presum,1);
+        }
+        return res;
+    }
+
+
+    //same for solution 2 for the subarray with given sum.
+     int count = 0, prefixSum = 0;
+
+        
+
+        HashMap<Integer,Integer> map = new HashMap<>();
+
+        
+
+        map.put(0,1);
+
+        
+
+        for(int val : arr){
+
+            prefixSum = prefixSum + val;
+
+        if(map.containsKey(prefixSum-sum)){
+
+            count = count + map.get(prefixSum-sum);
+
+        }
+
+        
+
+        map.put(prefixSum,map.getOrDefault(prefixSum,0)+1);
+
+        }
+
+        return count;
+
+# subarray with given no of 0's and 1's.
+static int countSubarrWithEqualZeroAndOne(int arr[], int n)
+    {
+        // add your code here
+         Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+         int sum = 0 , c = 0;
+        
+        map.put(0 , 1);
+        
+        for(int i = 0; i < n ; i++){
+            
+            if(arr[i] == 1){
+                sum+=1;
+            }
+            
+            else{
+                sum-=1;
+            }
+            
+            if(map.containsKey(sum))
+            {
+                c += map.get(sum);
+                map.put(sum , map.get(sum)+1);
+                
+            }
+            
+            else{
+                map.put(sum , 1);
+            }
+            
+            
+        }
+        
+
+        return c;
+      
+    }

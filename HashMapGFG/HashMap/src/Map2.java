@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class Map2 {
     public static void main(String[] args) throws Exception {
@@ -31,6 +32,14 @@ public class Map2 {
             System.out.println("no");
         }
         System.out.println(hmap2.get("gfg"));
+
+        HashMap<String, Integer> hmap3 = new HashMap<>();
+        hmap3.put("abc", null);
+        System.out.println(hmap3);
+
+        TreeMap<Integer, Integer> treeMap = new TreeMap<>();
+        treeMap.put(1, null);
+        System.out.println(treeMap);
 
     }
 }

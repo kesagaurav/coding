@@ -1,5 +1,7 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 
 public class Set {
@@ -29,6 +31,16 @@ public class Set {
                 System.out.println(map.getKey());
             }
         }
+
+        HashSet<String> set3 = new HashSet<String>();
+        set3.add(null);
+        HashSet<List> set4 = new HashSet<>();
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(1);
+        list.add(2);
+        set4.add(list);
+        System.out.println(list);
 
     }
 }
