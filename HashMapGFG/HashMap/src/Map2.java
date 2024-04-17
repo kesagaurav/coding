@@ -38,8 +38,15 @@ public class Map2 {
         System.out.println(hmap3);
 
         TreeMap<Integer, Integer> treeMap = new TreeMap<>();
-        treeMap.put(1, null);
+        treeMap.put(1, null);// key cannot be null,value can be null
         System.out.println(treeMap);
+
+        // duplicate using hashmaps
+        HashMap<String, Integer> hmap4 = new HashMap<>();
+        hmap4.put("a", 1);
+        hmap4.put("a", 1);
+        hmap4.put("b", 3);
+        System.out.println(hmap4);
 
     }
 }
