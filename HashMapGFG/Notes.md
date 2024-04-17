@@ -212,3 +212,48 @@ static int countSubarrWithEqualZeroAndOne(int arr[], int n)
         return c;
       
     }
+
+# winner of election problem.
+public static String[] winner(String arr[], int n)
+    {
+        // add your code
+        HashMap<String,Integer> hm = new HashMap<>();
+        String res[] = new String[2];
+        int max = 0;
+        for(int i=0; i<n; i++){
+            hm.put(arr[i],hm.getOrDefault(arr[i],0)+1);
+            max = Math.max(hm.get(arr[i]),max);
+        }
+        
+        for(String key : hm.keySet()){
+            if(hm.get(key)==max){
+                if(res[0]==null) res[0]=key;
+                else{
+                    if(res[0].compareTo(key)>0) res[0]=key;
+                }
+            }
+        }
+        res[1] = String.valueOf(max);
+        return res;
+    }
+
+# Numbers containing 1,2,3
+public static void findAll()
+{
+    //Your code here
+    for(int i=1; i<=1000000; i++){
+        if(isTrue(i)) mp.put(i,1);
+    }
+    
+}
+public static boolean isTrue(int a){
+    int c=a;
+    while(c>0){
+        if(c%10 == 1 || c%10 == 2 || c%10 == 3){
+            c/=10;
+        }else{
+            return false;
+        }
+    }
+    return true;
+}     
