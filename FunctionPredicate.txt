@@ -1,0 +1,17 @@
+Consumer<Integer> consumer=(a)->System.out.println(10);
+		consumer.accept(10);
+		String a="abc";
+		Supplier<String> supp=()->a;
+			System.out.println(supp.get());
+			
+			Predicate<Integer> pre= (t)->{
+				if(t>10) {
+					return true;
+				}else {
+					return false;
+				}
+			};
+			System.out.println(pre.test(5));
+			
+			Function<String, Integer> d=o->o.length();
+				System.out.println(d.apply("gaurav"));
