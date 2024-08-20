@@ -275,3 +275,24 @@ public static long findSubarray(long[] arr ,int n)
         }
         return count;
     }
+
+
+    //maximum pairs of an string
+
+    class Solution {
+    public int maximumNumberOfStringPairs(String[] words) {
+        HashMap<String,Integer> map=new HashMap<>();
+        for(String word:words){
+            char a[]=word.toCharArray();
+            Arrays.sort(a);
+            map.put(new String(a),map.getOrDefault(new String(a),0)+1);
+        }
+        int res=0;
+        for(Map.Entry<String,Integer> hmap:map.entrySet()){
+            if(hmap.getValue()>1){
+                res+=hmap.getValue()/2;
+            }
+        }
+        return res;
+    }
+}
